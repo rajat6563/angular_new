@@ -1,0 +1,127 @@
+<h3>Add Players Component</h3>
+<hr>
+<!-- <div class="row">
+<div class="col-md-4">
+    <input type="text" class="form-control" (input)="addPlayer1($event)">
+    <br>
+</div>
+<div class="col-md-4">
+    <input type="text" class="form-control" (input)="addPlayerOut1($event)">
+    <br>
+</div>
+<div class="col-md-4">
+    <input type="text" class="form-control" (input)="addPlayerRuns1($event)">
+    <br>
+</div>
+</div> -->
+
+
+
+
+<!-- <div class="row">
+    <div class="col-md-4">
+        <input type="text" class="form-control" [(ngModel)]="player1">
+        <br>
+    </div>
+    <div class="col-md-4">
+        <input type="text" class="form-control" [(ngModel)]="howout1">
+        <br>
+    </div>
+    <div class="col-md-4">
+        <input type="text" class="form-control" [(ngModel)]="runs1">
+        <br>
+    </div>
+    </div>
+
+<div class="row">
+    <div class="col-md-4">
+        <input type="text" class="form-control" [(ngModel)]="player2">
+        <br>
+    </div>
+    <div class="col-md-4">
+        <input type="text" class="form-control" [(ngModel)]="howout2">
+        <br>
+    </div>
+    <div class="col-md-4">
+        <input type="text" class="form-control" [(ngModel)]="runs2">
+        <br>
+    </div>
+    </div> -->
+
+
+
+
+    <!-- <div class="row">
+        <div class="col-md-4">
+            <input type="text" class="form-control" #pname>
+            <br>
+        </div>
+        <div class="col-md-4">
+            <input type="text" class="form-control" #howout>
+            <br>
+        </div>
+        <div class="col-md-4">
+            <input type="text" class="form-control" #runs>
+            <br>
+        </div>
+        <div class="col-md-4">
+        <button class="btn btn-danger" (click)="addPlayerInfo(pname.value,howout.value,runs.value)">Add Player Info</button>
+        </div>
+        </div> -->
+
+
+
+
+    <div class="row">
+        <div class="col-md-4">
+            <input type="text" class="form-control" [(ngModel)]="addPlayerObj.pname" (keyup.enter)="addPlayerInfoNew()">
+            <span class="badge badge-warning" *ngIf="addPlayerObj.pname == null || addPlayerObj.pname==''">Please Enter values</span>
+            <br>
+        </div>
+        <div class="col-md-4">
+            <input type="text" class="form-control" [(ngModel)]="addPlayerObj.howout" (keyup.enter)="addPlayerInfoNew()">
+            <span class="badge badge-warning" *ngIf="addPlayerObj.howout == null || addPlayerObj.howout ==''">Please Enter All values</span>
+            <br>
+        </div>
+        <div class="col-md-4">
+            <input type="text" class="form-control" [(ngModel)]="addPlayerObj.runs" (keyup.enter)="addPlayerInfoNew()">
+            <span class="badge badge-warning" *ngIf="addPlayerObj.runs==null || addPlayerObj.runs == ''">Please fill this fields rajat changes .................</span>
+            <br>
+        </div>
+        <div class="col-md-12 pt-2">
+
+        <button *ngIf="edit == false"class="btn btn-danger" (click)="addPlayerInfoNew()" [disabled]="(addPlayerObj.pname == '' || addPlayerObj.howout == '' || addPlayerObj.runs == '')">Add Player Info</button>
+        <button *ngIf="edit == true" class="btn btn-danger" (click)="editPlayerInfoNew()" [disabled]="(addPlayerObj.pname == '' || addPlayerObj.howout == '' || addPlayerObj.runs == '')">Update Player Info</button>
+
+        <button class="btn btn-info ml-3" *ngIf="edit == true" (click)="edit = false;">Cancel Update</button><br><br>
+
+        <app-warning-alert *ngIf="error == true;"></app-warning-alert>
+            <app-success-alert *ngIf="error == false;"></app-success-alert>
+        </div>
+        </div>
+
+
+<!-- <button class="btn btn-info" (click)="addPlayer()">Add Player</button> -->
+<br>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Pakistan Innings<br>Batsman</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>348-8 (50)<br>Runs</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let individualScore of scoreCardArray;let i = index;">
+        <td>{{ i+1 }}</td>
+        <td>{{ individualScore?.pname }}</td>
+        <td>{{ individualScore?.howout }}</td>
+        <td>{{ individualScore?.runs }}</td>
+        <td><span class="badge badge-success" (click)="editScore(i)">Edit</span></td>
+      </tr>
+
+
+    </tbody>
+  </table>

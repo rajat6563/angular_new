@@ -1,0 +1,54 @@
+<h2>Registeration</h2>
+<div class="row">
+<div class="col-md-4">
+  <label>First Name</label>
+  <input type="text" class="form-control" [(ngModel)]="formObject.fname">
+</div>
+<div class="col-md-4">
+  <label>Last Name</label>
+  <input type="text" class="form-control" [(ngModel)]="formObject.lname">
+</div>
+<div class="col-md-4">
+  <label>Email Address</label>
+  <input type="text" class="form-control" [(ngModel)]="formObject.email">
+</div>
+<div class="col-md-4">
+  <label>Contact No</label>
+  <input type="text" class="form-control" [(ngModel)]="formObject.contact">
+</div>
+<div class="col-md-4">
+  <label>Secondary Contact</label>
+  <input type="text" class="form-control" [(ngModel)]="formObject.scontact">
+</div>
+<div class="col-md-4">
+  <label>Address</label>
+  <input type="text" class="form-control" [(ngModel)]="formObject.address">
+</div>
+<div class="col-md-4">
+  <label>Blood Group</label>
+  <input type="text" class="form-control" [(ngModel)]="formObject.bgroup">
+</div>
+<div class="col-md-4">
+  <label>Bank Account No</label>
+  <input type="text" class="form-control" [(ngModel)]="formObject.accno">
+</div>
+<div class="col-md-4">
+  <label>IFSC Code</label>
+  <input type="text" class="form-control" [(ngModel)]="formObject.ifsc">
+</div>
+<br><br><br><br>
+<div class="col-md-4">
+    <app-warning-alert *ngIf="error == true;"></app-warning-alert>
+    <app-success-alert *ngIf="error == false;"></app-success-alert>
+  <button class="btn btn-danger" (click)="addRegistration()" [disabled]="(fname =='' || lname =='' || email =='' || contact =='' || scontact =='' || address =='' || bgroup =='' || accno =='' || ifsc =='')">Register</button>
+</div>
+
+</div>
+<div class="row mt-4">
+  <div class="col-md-12">
+  <p><span class="font-weight-bold">Client Name : </span>{{ displayObj.fname }} {{ displayObj.lname }}</p>
+  <p><span class="font-weight-bold">Contact No :</span> {{ displayObj.contact }} <span class="font-weight-bold">Secondry Contact No :</span> {{ displayObj.scontact }} <span class="font-weight-bold">Email :</span>{{ displayObj.email }}</p>
+  <p><span class="font-weight-bold">Address :</span>{{ displayObj.address }} <span class="font-weight-bold">Blood Group :</span> {{ displayObj.bgroup }}</p>
+  <p><span class="font-weight-bold">Account No :</span>{{ displayObj.accno }} <span class="font-weight-bold">IFSC Code : </span> {{ displayObj.ifsc }}</p>
+</div>
+</div>
